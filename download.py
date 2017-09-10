@@ -4,8 +4,6 @@ import urllib
 
 def download(query, n = 1):
     n = int(n)
-    print query
-    print n
     if query == "trending":
         images = search.trending(n)
     else:
