@@ -1,4 +1,5 @@
 import requests
+import json
 
 def getAPIKey():
     keyFile = open("key.txt", 'r')
@@ -19,8 +20,7 @@ def getAccessToken():
     return token
 
 def makePublic(fileName):
-    with open("public.json", "rb") as json_file:
-        data = json_file.read()
+    payload = json.dumps({"entity": "allUsers", "role": "READER"})
     headers = {"Content-Type": "application/json", "Authorization": "Bearer " + getAccessToken()}
-    r = requests.post(url = "https://www.googleapis.com/storage/v1/b/meme-images/o/" + fileName + "/acl", data = data, headers = headers)
+    r = requests.post(url = "https://www.googleapis.com/storage/v1/b/meme-images/o/" + fileName + "/acl", data = payload, headers = headers)
     print "made public " + r.reason

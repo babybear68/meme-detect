@@ -1,0 +1,1 @@
+{"requests": [{"image": {"source": {"imageUri": "gs://meme-images/trending_0.gif"}}, "features": [{"type": "LABEL_DETECTION"}]}]}
